@@ -447,7 +447,18 @@ nav a:hover::after {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     transition: var(--transition);
+}
+
+#drillEffectsCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
 }
 
 .hero-image-wrapper::after {
@@ -455,6 +466,16 @@ nav a:hover::after {
     position: absolute;
     inset: 0;
     background: linear-gradient(to top, rgba(8, 8, 10, 0.8) 0%, transparent 50%);
+    z-index: 3;
+}
+
+.vibrating {
+    animation: drillVibrate 0.1s infinite alternate linear;
+}
+
+@keyframes drillVibrate {
+    0% { transform: translate(0.5px, 0.5px) scale(1.01); }
+    100% { transform: translate(-0.5px, -0.5px) scale(1.01); }
 }
 
 .glass-card {
